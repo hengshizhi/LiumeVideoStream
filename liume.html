@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <script src="https://cdn.jsdelivr.net/npm/dplayer@1.27.0/dist/DPlayer.min.js"></script>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      #dplayer{
+         max-width: 50%;
+         height: 340px;
+         margin: 0 auto;
+      }
+   </style>
+</head>
+<body>
+   <div id="dplayer"></div>
+   <script>
+      var dp = new DPlayer({
+         container: document.getElementById('dplayer'),
+         video: {
+            url: './liume.php',  //调用接口
+         },
+         screenshot:true,
+         danmaku:null,
+         highlight: [
+        {
+            time: 20,
+            text: '这是第 20 秒',
+        },
+        {
+            time: 120,
+            text: '这是 2 分钟',
+        },
+    ],
+      });
+   </script>
+</body>
+</html>
