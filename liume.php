@@ -61,7 +61,7 @@ function outPutStream($videoUrl) {
     //添加 Range 分段请求
     $header = array("Range:bytes={$start}-{$end}");
     #发起请求
-    $ch2 = curl_init();
+    $ch2 = curl_init($videoUrl);
     curl_setopt($ch2, CURLOPT_URL, $videoUrl);
     curl_setopt($ch2, CURLOPT_TIMEOUT, 60);
     curl_setopt($ch2, CURLOPT_HTTPHEADER, $header);
@@ -85,7 +85,7 @@ function outPutStream($videoUrl) {
     header('HTTP/1.1 206 PARTIAL CONTENT');
     header("Accept-Ranges: bytes");
     header("Connection: keep-alive");
-    header("Content-Type: video/mp4");
+    //header("Content-Type: video/mp4");
     header("Access-Control-Allow-Origin: *");
     //为了兼容 ios UC这类浏览器 这里加个判断 UC的 Content-Range 是 起始值-总大小减一
     if($end!=1){
@@ -103,5 +103,5 @@ function outPutStream($videoUrl) {
 }
  
 #输出视频流 视频地址可能失效，您可以换成你的来测试
-outPutStream("http://127.0.0.1/PHP%20Video%20Stream/LiumeVideoStream/Faded%20-%20Alan%20Walker%20(Piano%20Orchestral%20Cover%20Mathias%20Fritsche).mp4");
-die();
+//outPutStream("http://127.0.0.1/Faded%20-%20Alan%20Walker%20(Piano%20Orchestral%20Cover%20Mathias%20Fritsche).mp4");
+//die();
