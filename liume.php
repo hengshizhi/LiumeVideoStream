@@ -4,8 +4,8 @@
 #文章地址：https://blog.csdn.net/qq_40729514
 #转载请注明版权，尊重作者成果
  
-ini_set('memory_limit', '1024M'); //修改脚本的最大运行内存
-set_time_limit(600); //设置超时限制为 10分钟
+//ini_set('memory_limit', '1024M'); //修改脚本的最大运行内存
+//set_time_limit(600); //设置超时限制为 10分钟
  
 //输出视频流
 function outPutStream($videoUrl) {
@@ -85,7 +85,7 @@ function outPutStream($videoUrl) {
     header('HTTP/1.1 206 PARTIAL CONTENT');
     header("Accept-Ranges: bytes");
     header("Connection: keep-alive");
-    //header("Content-Type: video/mp4");
+    header("Content-Type: video/mp4");
     header("Access-Control-Allow-Origin: *");
     //为了兼容 ios UC这类浏览器 这里加个判断 UC的 Content-Range 是 起始值-总大小减一
     if($end!=1){
@@ -103,5 +103,5 @@ function outPutStream($videoUrl) {
 }
  
 #输出视频流 视频地址可能失效，您可以换成你的来测试
-//outPutStream("http://127.0.0.1/Faded%20-%20Alan%20Walker%20(Piano%20Orchestral%20Cover%20Mathias%20Fritsche).mp4");
+//outPutStream("https://cdn.seclusion.work/public/video/DNA%20%E4%B9%B1%E4%BA%86.mp4");
 //die();
