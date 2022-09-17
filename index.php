@@ -1,7 +1,8 @@
 <?php
+$configure = read('configure.json');
 include ("liume.php");
-ini_set('memory_limit', '1024M'); //修改脚本的最大运行内存
-set_time_limit(600); //设置超时限制为 10分钟
+ini_set('memory_limit', $configure['ini_set']); //修改脚本的最大运行内存
+set_time_limit($configure['set_time_limit']); //设置超时限制为 10分钟
 
 $wiki = $_GET['wiki'];
 $api = $_GET['api'];
